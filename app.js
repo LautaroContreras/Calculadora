@@ -2,7 +2,8 @@ const fs = require("fs");
 const division = require("./operaciones/division");
 const multiplicacion = require("./operaciones/multiplicacion")
 const resta = require("./operaciones/resta")
-const suma = require("./operaciones/suma")
+const suma = require("./operaciones/suma");
+const { log } = require("console");
 
 const operacion = process.argv[2];
 const num1 = +process.argv[3];
@@ -32,14 +33,15 @@ function calcular(operacion, numero1, numero2) {
   return { operacion: operacion, resultado: resultado };
 }
 
-function leer() {
+function listar() {
   let archivo = fs.readFileSync(path, "utf-8");
   return JSON.parse(archivo);
 }
 
 function escribir(registro) {
-  let archivo = leer();
+  let archivo = listar();
   archivo.push(registro);
   fs.writeFileSync(path, JSON.stringify(archivo));
 }
 console.log(calcular(operacion, num1, num2));
+console.log(listar());

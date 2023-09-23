@@ -14,7 +14,7 @@ function calcular(operacion, numero1, numero2) {
 
   switch (operacion) {
     case "suma":
-      resultado = (numero1 + numero2);
+      resultado = suma (numero1 , numero2);
       break;
     case "resta":
       resultado = resta (numero1, numero2);

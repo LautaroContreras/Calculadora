@@ -1,13 +1,13 @@
 const fs = require("fs");
-const division = require("./division");
-const multiplicacion = require("./multiplicacion")
-const resta = require("./resta")
-const suma = require("./suma")
+const division = require("./operaciones/division");
+const multiplicacion = require("./operaciones/multiplicacion")
+const resta = require("./operaciones/resta")
+const suma = require("./operaciones/suma")
 
 const operacion = process.argv[2];
 const num1 = +process.argv[3];
 const num2 = +process.argv[4];
-const path = __dirname + "/registro.json";
+const path = __dirname + "/data/registro.json";
 
 function calcular(operacion, numero1, numero2) {
   let resultado = 0;

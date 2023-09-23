@@ -1,6 +1,7 @@
 const fs = require("fs");
 const division = require("./division");
 const multiplicacion = require("./multiplicacion")
+const resta = require("./resta")
 const suma = require("./suma")
 
 const operacion = process.argv[2];
@@ -16,7 +17,7 @@ function calcular(operacion, numero1, numero2) {
       resultado = (numero1 + numero2);
       break;
     case "resta":
-      resultado = numero1 - numero2;
+      resultado = resta (numero1, numero2);
       break;
     case "multiplicar":
       resultado = multiplicacion(numero1, numero2);

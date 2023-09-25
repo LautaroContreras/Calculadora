@@ -1,7 +1,7 @@
 const fs = require("fs");
 const division = require("./operaciones/division");
-const multiplicacion = require("./operaciones/multiplicacion")
-const resta = require("./operaciones/resta")
+const multiplicacion = require("./operaciones/multiplicacion");
+const resta = require("./operaciones/resta");
 const suma = require("./operaciones/suma");
 const { log } = require("console");
 
@@ -12,25 +12,37 @@ const path = __dirname + "/data/registro.json";
 
 function calcular(operacion, numero1, numero2) {
   let resultado = 0;
+  let registro;
 
   switch (operacion) {
     case "suma":
-      resultado = suma (numero1 , numero2);
+      resultado = suma(numero1, numero2);
+      registro = { operacion: operacion, resultado: resultado };
+      escribir(registro);
       break;
     case "resta":
-      resultado = resta (numero1, numero2);
+      resultado = resta(numero1, numero2);
+      registro = { operacion: operacion, resultado: resultado };
+      escribir(registro);
       break;
     case "multiplicar":
       resultado = multiplicacion(numero1, numero2);
+      registro = { operacion: operacion, resultado: resultado };
+      escribir(registro);
       break;
     case "division":
       resultado = division(numero1, numero2);
+      registro = { operacion: operacion, resultado: resultado };
+      escribir(registro);
+      break;
+    case "lista":
+      registro = listar();
       break;
     default:
       return "operacion no encontrada";
   }
-  escribir({ operacion: operacion, resultado: resultado });
-  return { operacion: operacion, resultado: resultado };
+
+  return registro;
 }
 
 function listar() {
@@ -44,4 +56,4 @@ function escribir(registro) {
   fs.writeFileSync(path, JSON.stringify(archivo));
 }
 console.log(calcular(operacion, num1, num2));
-console.log(listar());
+//console.log(listar());
